@@ -60,7 +60,7 @@ static NSMutableArray* toastArray = nil;
     }else{
         self.iconImage = iconImage;
     }
-    self.iconImageSize = self.iconImage == nil ? CGSizeZero : CGSizeMake(35.f, 35.f);
+    self.iconImageSize = self.iconImage == nil ? CGSizeZero : CGSizeMake(18.f, 18.f);
     
     
     return [self init];
