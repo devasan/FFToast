@@ -187,6 +187,11 @@ static NSMutableArray* toastArray = nil;
             self.alpha = 0.f;
             break;
         }
+            case FFToastPositionBlowNavigationBar:
+        {
+            self.frame = CGRectMake(_toastViewFrame.origin.x, -(_toastViewFrame.size.height + STATUSBAR_HEIGHT + 44), _toastViewFrame.size.width, _toastViewFrame.size.height);
+        }
+            break;
         default:
             break;
     }

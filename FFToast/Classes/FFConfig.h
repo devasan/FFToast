@@ -43,7 +43,8 @@ typedef NS_ENUM(NSInteger, FFToastPosition) {
     //显示在屏幕中间
     FFToastPositionCentre = 5,
     //显示在屏幕中间+圆角
-    FFToastPositionCentreWithFillet = 6
+    FFToastPositionCentreWithFillet = 6,
+    FFToastPositionBlowNavigationBar = 7
     
 };
 
