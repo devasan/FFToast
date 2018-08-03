@@ -321,6 +321,13 @@ static NSMutableArray* toastArray = nil;
             
             break;
         }
+            case FFToastPositionBlowNavigationBar:
+        {
+            toastViewY = STATUSBAR_HEIGHT + 44;
+            toastViewW = SCREEN_WIDTH;
+            break;
+
+        }break;
         default:
             break;
     }
