@@ -405,13 +405,19 @@ static NSMutableArray* toastArray = nil;
         UIWindow *windowView = [UIApplication sharedApplication].keyWindow;
         [windowView addSubview:self];
         
+        if (_toastPosition == FFToastPositionBlowNavigationBar) {
+            self.frame = _toastViewFrame;
+        }
+        
         [UIView animateWithDuration:0.5f
                               delay:0.f
              usingSpringWithDamping:0.7f
               initialSpringVelocity:0.5f
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             self.frame = _toastViewFrame;
+                             if (_toastPosition != FFToastPositionBlowNavigationBar) {
+                                 self.frame = _toastViewFrame;
+                             }
                              self.alpha = _toastAlpha;
                          } completion:^(BOOL finished) {
                              
@@ -459,7 +465,7 @@ static NSMutableArray* toastArray = nil;
             [NSRunLoop cancelPreviousPerformRequestsWithTarget:toast];
             [toastArray removeObject:toast];
             
-            if (self.dismissToastAnimated == YES && _toastPosition != FFToastPositionBottom && _toastPosition != FFToastPositionBottomWithFillet) {
+            if (self.dismissToastAnimated == YES && _toastPosition != FFToastPositionBottom && _toastPosition != FFToastPositionBottomWithFillet && _toastPosition != FFToastPositionBlowNavigationBar) {
                 
                 CGFloat tempStatusBarHeight = 0;
                 if (self.toastPosition == FFToastPositionDefault) {
